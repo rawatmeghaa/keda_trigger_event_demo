@@ -1,0 +1,13 @@
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: aws-secrets  # This must match what ScaledObject expects
+  namespace: default # Same namespace as ScaledObject
+spec:
+  secretTargetRef:
+  - parameter: awsAccessKeyID
+    name: aws-secrets
+    key: aws-access-key-id
+  - parameter: awsSecretAccessKey
+    name: aws-secrets
+    key: aws-secret-access-key
